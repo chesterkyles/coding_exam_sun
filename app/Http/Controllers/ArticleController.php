@@ -21,6 +21,7 @@ class ArticleController extends Controller
 
     public function store()
     {
+
         $data = request()->validate([
             'name' => ['required','string'],
             'content' => ['required', 'string'],

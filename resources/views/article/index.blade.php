@@ -8,7 +8,7 @@
                     <div class="card-header">Dashboard</div>
 
                     <div class="card-body">
-                        <a href="{{ route('article.create') }}" class="btn btn-primary">New Article</a>
+                        <a href="{{ route('article.create') }}" class="btn btn-primary">Create a new article</a>
                     </div>
                 </div>
 
@@ -21,14 +21,16 @@
                                 <li class="mb-4">
                                     <div class="d-flex flex-column mb-2">
                                         <a href="#">{{ $article->name }}</a>
-                                        <label class="mt-2 font-italic">{{ \Illuminate\Support\Str::limit($article->content,40) }}</label>
+                                        <label class="mt-2 font-italic">{{ \Illuminate\Support\Str::limit($article->content,100) }}</label>
                                     </div>
-                                    <a href="{{ route('article.update', ['article' => $article]) }}" class="btn btn-primary p-0 px-2">Edit</a>
-                                    <form action="{{ route('article.destroy', ['article' => $article]) }}" method="POST">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit" class="btn btn-danger p-0 px-2 ">Delete</a>
-                                    </form>
+                                    <div class="d-flex">
+                                        <a href="{{ route('article.edit', ['article' => $article]) }}" class="btn btn-primary p-0 px-2 mr-2">Edit</a>
+                                        <form action="{{ route('article.destroy', ['article' => $article]) }}" method="POST">
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" class="btn btn-danger p-0 px-2 ">Delete</button>
+                                        </form>
+                                    </div>
                                 </li>
                             @endforeach
                         </ul>
