@@ -20,8 +20,8 @@
                             @foreach($articles as $article)
                                 <li class="mb-4">
                                     <div class="d-flex flex-column mb-2">
-                                        <a href="#">{{ $article->name }}</a>
-                                        <label class="mt-2 font-italic">{{ \Illuminate\Support\Str::limit($article->content,100) }}</label>
+                                        <a href="{{ route('article.show', ['article' => $article]) }}">{{ $article->name }}</a>
+                                        <label class="mt-2 font-italic">{{ \Illuminate\Support\Str::limit($article->content,150) }}</label>
                                     </div>
                                     <div class="d-flex">
                                         <a href="{{ route('article.edit', ['article' => $article]) }}" class="btn btn-primary p-0 px-2 mr-2">Edit</a>
